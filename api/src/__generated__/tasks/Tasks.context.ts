@@ -6,7 +6,7 @@
  */
 import type { Context, Env } from "hono";
 
-import type { TasksListTasksParams } from "./models";
+import { TasksListTasksParams } from ".././models";
 
 export type TasksListTasksContext<E extends Env = any> = Context<
   E,

@@ -5,9 +5,7 @@
  * OpenAPI spec version: 0.0.0
  */
 
-// based on https://github.com/honojs/middleware/blob/main/packages/zod-validator/src/index.ts
-import type { z, ZodSchema, ZodError } from "zod";
-import type {
+import {
   Context,
   Env,
   Input,
@@ -15,6 +13,8 @@ import type {
   TypedResponse,
   ValidationTargets,
 } from "hono";
+// based on https://github.com/honojs/middleware/blob/main/packages/zod-validator/src/index.ts
+import type { ZodError, ZodSchema, z } from "zod";
 
 type HasUndefined<T> = undefined extends T ? true : false;
 

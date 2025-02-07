@@ -8,9 +8,16 @@ export default defineConfig({
       clean: true,
       schemas: "api/src/__generated__/models",
       target: "api/src/__generated__/task-api.ts",
-    },
-    hooks: {
-      afterAllFilesWrite: ["pnpm format"],
+      biome: true,
+      tsconfig: "api/tsconfig.json",
+      mode: "tags-split",
+      override: {
+        hono: {
+          compositeRoute: "api/src/__generated__/routes.ts",
+          handlers: "api/src/handlers",
+          validatorOutputPath: "api/src/__generated__/validator.ts",
+        },
+      },
     },
   },
 });

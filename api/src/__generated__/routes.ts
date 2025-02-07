@@ -5,8 +5,7 @@
  * OpenAPI spec version: 0.0.0
  */
 import { Hono } from "hono";
-
-import { tasksListTasksHandlers } from "./task-api.handlers";
+import { tasksListTasksHandlers } from "../handlers/tasksListTasks";
 
 const app = new Hono();
 
