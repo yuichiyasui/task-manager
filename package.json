@@ -2,10 +2,14 @@
   "name": "task-manager",
   "version": "1.0.0",
   "scripts": {
-    "dev": "turbo run dev"
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "format": "biome format --write",
+    "format:check": "biome format --check"
   },
   "packageManager": "pnpm@8.15.6+sha256.01c01eeb990e379b31ef19c03e9d06a14afa5250b82e81303f88721c99ff2e6f",
   "devDependencies": {
+    "@biomejs/biome": "1.9.4",
     "turbo": "2.4.0"
   }
 }
