@@ -17,7 +17,8 @@
     "enabled": true,
     "rules": {
       "recommended": true
-    }
+    },
+    "ignore": ["__generated__"]
   },
   "javascript": {
     "formatter": {
