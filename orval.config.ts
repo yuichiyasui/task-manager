@@ -2,7 +2,7 @@ import { defineConfig } from "orval";
 
 export default defineConfig({
   taskApiServer: {
-    input: "schema/tsp-output/@typespec/openapi3/openapi.yaml",
+    input: "schema/output/openapi.yaml",
     output: {
       client: "hono",
       clean: true,
