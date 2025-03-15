@@ -5,6 +5,8 @@
  * OpenAPI spec version: 0.0.0
  */
 
+export * from "./signInRequest";
+export * from "./signUpRequest";
 export * from "./task";
 export * from "./taskStatus";
 export * from "./tasksListTasks200";

@@ -3,6 +3,7 @@ import "@typespec/rest";
 import "@typespec/openapi3";
 
 import "./models/task.tsp";
+import "./models/user.tsp";
 
 using TypeSpec.Http;
 using TypeSpec.Rest;
@@ -31,5 +32,31 @@ namespace Tasks {
       tasks: Task[];
       total: int16;
     };
+  };
+}
+
+@route("/users")
+@tag("Users")
+namespace Users {
+  @route("/sign-up")
+  @post
+  op signUp(
+    @body
+    req: SignUpRequest,
+  ): {
+    @statusCode statusCode: 201;
+  } | {
+    @statusCode statusCode: 400;
+  };
+
+  @route("/sign-in")
+  @post
+  op signIn(
+    @body
+    req: SignInRequest,
+  ): {
+    @statusCode statusCode: 200;
+  } | {
+    @statusCode statusCode: 400;
   };
 }

@@ -1,3 +1,4 @@
+import { usersSignUp } from "~/__generated__/users/users";
 import { getMetaTitle } from "~/utils/meta";
 
 export function meta() {
@@ -8,7 +9,15 @@ export default function Page() {
   return (
     <main>
       <h1>ユーザー登録</h1>
-      <form>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          usersSignUp({
+            email: "",
+            password: "",
+          });
+        }}
+      >
         <div>
           <label htmlFor="email">メールアドレス</label>
           <input id="email" type="email" />

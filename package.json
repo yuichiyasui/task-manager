@@ -7,7 +7,6 @@
     "format": "biome format --write",
     "format:check": "biome format --check",
     "schema:compile": "pnpm --filter schema compile",
-    "schema:generate": "pnpm --filter schema generate",
     "generate:api": "pnpm orval --config orval.config.ts"
   },
   "packageManager": "pnpm@8.15.6+sha256.01c01eeb990e379b31ef19c03e9d06a14afa5250b82e81303f88721c99ff2e6f",

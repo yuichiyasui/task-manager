@@ -20,4 +20,21 @@ export default defineConfig({
       },
     },
   },
+  web: {
+    input: "schema/output/openapi.yaml",
+    output: {
+      client: "fetch",
+      clean: true,
+      target: "apps/web/src/__generated__/api.ts",
+      biome: true,
+      tsconfig: "web/tsconfig.json",
+      mode: "tags-split",
+      override: {
+        mutator: {
+          path: "apps/web/src/libs/orval.ts",
+          name: "customFetch",
+        },
+      },
+    },
+  },
 });
