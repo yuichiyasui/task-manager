@@ -27,7 +27,7 @@ export default defineConfig({
       clean: true,
       target: "apps/web/src/__generated__/api.ts",
       biome: true,
-      tsconfig: "web/tsconfig.json",
+      tsconfig: "apps/web/tsconfig.json",
       mode: "tags-split",
       override: {
         mutator: {

@@ -27,7 +27,7 @@ const getUrl = (contextUrl: string) => {
 const getHeaders = (headers?: HeadersInit): HeadersInit => {
   return {
     ...headers,
-    "Content-Type": "multipart/form-data",
+    "Content-Type": "application/json",
   };
 };
 
