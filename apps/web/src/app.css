@@ -2,3 +2,5 @@
 @import "../node_modules/preline/variants.css";
 
 @plugin "@tailwindcss/forms";
+
+@custom-variant aria-invalid (&[aria-invalid="true"]);
