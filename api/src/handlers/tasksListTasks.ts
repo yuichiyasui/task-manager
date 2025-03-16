@@ -1,9 +1,9 @@
 import { createFactory } from "hono/factory";
-import type { TasksListTasksContext } from "../__generated__/tasks/Tasks.context";
+import type { TasksListTasksContext } from "../__generated__/tasks/tasks.context";
 import {
   tasksListTasksQueryParams,
   tasksListTasksResponse,
-} from "../__generated__/tasks/Tasks.zod";
+} from "../__generated__/tasks/tasks.zod";
 import { zValidator } from "../__generated__/validator";
 
 const factory = createFactory();

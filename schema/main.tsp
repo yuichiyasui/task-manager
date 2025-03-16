@@ -15,7 +15,7 @@ using TypeSpec.Rest;
 namespace TaskApi;
 
 @route("/tasks")
-@tag("Tasks")
+@tag("tasks")
 namespace Tasks {
   @get
   op listTasks(
@@ -36,7 +36,7 @@ namespace Tasks {
 }
 
 @route("/users")
-@tag("Users")
+@tag("users")
 namespace Users {
   @route("/sign-up")
   @post
