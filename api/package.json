@@ -7,11 +7,13 @@
   "dependencies": {
     "@hono/node-server": "^1.13.8",
     "@hono/zod-validator": "0.4.2",
+    "@prisma/client": "6.5.0",
     "hono": "^4.6.20",
     "zod": "3.24.1"
   },
   "devDependencies": {
     "@types/node": "^20.11.17",
+    "prisma": "6.5.0",
     "tsx": "^4.7.1"
   },
   "packageManager": "pnpm@8.15.6+sha256.01c01eeb990e379b31ef19c03e9d06a14afa5250b82e81303f88721c99ff2e6f"
