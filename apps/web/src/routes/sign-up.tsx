@@ -90,6 +90,7 @@ export default function Page() {
             <TextField
               id={fieldId.email}
               type="email"
+              autoComplete="email"
               aria-invalid={!!errors.email}
               aria-describedby={emailFieldErrorId}
               aria-required
@@ -111,6 +112,7 @@ export default function Page() {
             <TextField
               id={fieldId.password}
               type="password"
+              autoComplete="new-password"
               aria-invalid={!!errors.password}
               aria-describedby={passwordFieldErrorId}
               aria-required
@@ -134,6 +136,7 @@ export default function Page() {
             <TextField
               id={fieldId.passwordConfirmation}
               type="password"
+              autoComplete="new-password"
               aria-invalid={!!errors.passwordConfirmation}
               aria-describedby={passwordConfirmationFieldErrorId}
               aria-required

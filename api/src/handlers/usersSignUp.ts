@@ -16,13 +16,13 @@ export const usersSignUpHandlers = factory.createHandlers(
     const email = new Email(body.email);
     const password = new Password(body.password);
     if (!email.isValid() || !password.isValid()) {
-      return c.status(400);
+      return c.text("Error", 400);
     }
 
     const userRepository = c.get("userRepository");
     const user = await userRepository.findByEmail(body.email);
     if (user) {
-      return c.status(400);
+      return c.text("Error", 400);
     }
 
     const hashedPassword = await password.getHashedValue();
@@ -34,6 +34,6 @@ export const usersSignUpHandlers = factory.createHandlers(
 
     await userRepository.save(newUser);
 
-    return c.status(201);
+    return c.text("Created", 201);
   },
 );

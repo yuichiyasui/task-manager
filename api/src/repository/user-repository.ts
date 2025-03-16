@@ -9,7 +9,7 @@ export class UserRepository implements IUserRepository {
     this.client = client;
   }
 
-  async findByEmail(email: string): Promise<User | null> {
+  public async findByEmail(email: string): Promise<User | null> {
     const user = await this.client.users.findUnique({
       where: { email },
     });
@@ -25,8 +25,8 @@ export class UserRepository implements IUserRepository {
     });
   }
 
-  async save(user: User): Promise<void> {
-    this.client.users.create({
+  public async save(user: User): Promise<void> {
+    await this.client.users.create({
       data: {
         id: user.id,
         email: user.email,
