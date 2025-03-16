@@ -2,7 +2,11 @@
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "biomejs.biome",
   "[typescriptreact][typescript]": {
-    "editor.codeActionsOnSave": ["source.addMissingImports"]
+    "editor.codeActionsOnSave": [
+      "source.addMissingImports",
+      "source.organizeImports",
+      "source.fixAll.biome"
+    ]
   },
   "[typespec]": {
     "editor.detectIndentation": false,

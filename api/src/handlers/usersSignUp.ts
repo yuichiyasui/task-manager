@@ -1,11 +1,11 @@
 import { createFactory } from "hono/factory";
-import type { UsersSignUpContext } from "../__generated__/users/users.context";
 import { usersSignUpBody } from "../__generated__/users/users.zod";
 import { zValidator } from "../__generated__/validator";
+import type { Env } from "../interface/env";
 
-const factory = createFactory();
+const factory = createFactory<Env>();
 
 export const usersSignUpHandlers = factory.createHandlers(
   zValidator("json", usersSignUpBody),
-  async (c: UsersSignUpContext) => {},
+  async (c) => {},
 );

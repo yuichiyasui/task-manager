@@ -2,7 +2,7 @@ import type { PrismaClient } from "@prisma/client";
 import type { IUserRepository } from "../interface/user-repository";
 
 export class UserRepository implements IUserRepository {
-  readonly client: PrismaClient;
+  private readonly client: PrismaClient;
 
   constructor(client: PrismaClient) {
     this.client = client;
