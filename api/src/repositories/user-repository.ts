@@ -29,7 +29,6 @@ export class UserRepository implements IUserRepository {
       data: {
         id: user.id,
         email: user.email,
-        name: "", // TODO: カラムを削除したら消す
         password: user.password,
       },
     });

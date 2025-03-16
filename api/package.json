@@ -2,7 +2,9 @@
   "name": "api",
   "scripts": {
     "dev": "tsx watch src/index.ts",
-    "lint": "biome lint"
+    "lint": "biome lint",
+    "db:client": "prisma generate",
+    "db:studio": "prisma studio"
   },
   "dependencies": {
     "@hono/node-server": "^1.13.8",
