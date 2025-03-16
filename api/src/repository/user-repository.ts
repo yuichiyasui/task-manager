@@ -1,4 +1,5 @@
 import type { PrismaClient } from "@prisma/client";
+import { User } from "../domain/user";
 import type { IUserRepository } from "../interface/user-repository";
 
 export class UserRepository implements IUserRepository {
