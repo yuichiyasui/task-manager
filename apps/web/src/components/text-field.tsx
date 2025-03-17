@@ -13,6 +13,9 @@ export const TextField = ({ className, ...props }: Props) => {
       {...props}
       className={classnames(
         className,
+        "border",
+        "border-gray-300",
+        "rounded-sm",
         "aria-invalid:border-red-500",
         "aria-invalid:focus:ring-red-500/50",
       )}

@@ -1,5 +1,5 @@
 import { NavLink } from "react-router";
-import type { Route } from "./+types/_index";
+import type { Route } from "./+types/_auth._index";
 
 export function meta(_: Route.MetaArgs) {
   return [
