@@ -21,7 +21,6 @@ export default function Page() {
     <main className={classnames("grid", "place-items-center", "min-h-lvh")}>
       <div
         className={classnames(
-          "mx-auto",
           "bg-white",
           "border",
           "border-gray-200",

@@ -1,11 +1,12 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { useNavigate, useNavigation } from "react-router";
+import { NavLink, useNavigate, useNavigation } from "react-router";
 import { z } from "zod";
 import { usersSignUp } from "~/__generated__/users/users";
 import { Button } from "~/components/button";
 import { FieldError } from "~/components/field-error";
 import { TextField } from "~/components/text-field";
+import { TextLink } from "~/components/text-link";
 import { classnames } from "~/utils/classnames";
 import { getMetaTitle } from "~/utils/meta";
 
@@ -77,91 +78,119 @@ export default function Page() {
   const passwordConfirmationFieldErrorId = `${fieldId.passwordConfirmation}-error`;
 
   return (
-    <main className="p-4">
-      <h1 className={classnames("text-lg", "font-bold", "mb-4")}>
-        ユーザー登録
-      </h1>
-      <form className={classnames("grid", "gap-2", "w-96")}>
-        <div>
+    <main className={classnames("grid", "place-items-center", "min-h-lvh")}>
+      <div
+        className={classnames(
+          "bg-white",
+          "border",
+          "border-gray-200",
+          "p-4",
+          "w-96",
+        )}
+      >
+        <h1 className={classnames("text-2xl", "font-bold", "mb-4")}>
+          ユーザー登録
+        </h1>
+        <form className={classnames("grid", "gap-4")}>
           <div>
-            <label htmlFor={fieldId.email}>メールアドレス</label>
-          </div>
-          <div className={classnames("grid", "gap-y-2")}>
-            <TextField
-              id={fieldId.email}
-              type="email"
-              autoComplete="email"
-              aria-invalid={!!errors.email}
-              aria-describedby={emailFieldErrorId}
-              aria-required
-              {...register("email")}
-            />
-            {errors.email?.message && (
-              <FieldError
-                id={emailFieldErrorId}
-                message={errors.email.message}
+            <div className={classnames("mb-1")}>
+              <label htmlFor={fieldId.email} className={classnames("text-sm")}>
+                メールアドレス
+              </label>
+            </div>
+            <div className={classnames("grid", "gap-y-2")}>
+              <TextField
+                id={fieldId.email}
+                type="email"
+                autoComplete="email"
+                aria-invalid={!!errors.email}
+                aria-describedby={emailFieldErrorId}
+                aria-required
+                {...register("email")}
+                className={classnames("w-full")}
               />
-            )}
+              {errors.email?.message && (
+                <FieldError
+                  id={emailFieldErrorId}
+                  message={errors.email.message}
+                />
+              )}
+            </div>
           </div>
-        </div>
-        <div>
           <div>
-            <label htmlFor={fieldId.password}>パスワード</label>
-          </div>
-          <div className={classnames("grid", "gap-y-2")}>
-            <TextField
-              id={fieldId.password}
-              type="password"
-              autoComplete="new-password"
-              aria-invalid={!!errors.password}
-              aria-describedby={passwordFieldErrorId}
-              aria-required
-              {...register("password")}
-            />
-            {errors.password?.message && (
-              <FieldError
-                id={passwordFieldErrorId}
-                message={errors.password.message}
+            <div className={classnames("mb-1")}>
+              <label
+                htmlFor={fieldId.password}
+                className={classnames("text-sm")}
+              >
+                パスワード
+              </label>
+            </div>
+            <div className={classnames("grid", "gap-y-2")}>
+              <TextField
+                id={fieldId.password}
+                type="password"
+                autoComplete="new-password"
+                aria-invalid={!!errors.password}
+                aria-describedby={passwordFieldErrorId}
+                aria-required
+                {...register("password")}
+                className={classnames("w-full")}
               />
-            )}
+              {errors.password?.message && (
+                <FieldError
+                  id={passwordFieldErrorId}
+                  message={errors.password.message}
+                />
+              )}
+            </div>
           </div>
-        </div>
-        <div>
           <div>
-            <label htmlFor={fieldId.passwordConfirmation}>
-              パスワード（確認）
-            </label>
-          </div>
-          <div className={classnames("grid", "gap-y-2")}>
-            <TextField
-              id={fieldId.passwordConfirmation}
-              type="password"
-              autoComplete="new-password"
-              aria-invalid={!!errors.passwordConfirmation}
-              aria-describedby={passwordConfirmationFieldErrorId}
-              aria-required
-              {...register("passwordConfirmation")}
-            />
-            {errors.passwordConfirmation?.message && (
-              <FieldError
-                id={passwordConfirmationFieldErrorId}
-                message={errors.passwordConfirmation.message}
+            <div className={classnames("mb-1")}>
+              <label
+                htmlFor={fieldId.passwordConfirmation}
+                className={classnames("text-sm")}
+              >
+                パスワード（確認）
+              </label>
+            </div>
+            <div className={classnames("grid", "gap-y-2")}>
+              <TextField
+                id={fieldId.passwordConfirmation}
+                type="password"
+                autoComplete="new-password"
+                aria-invalid={!!errors.passwordConfirmation}
+                aria-describedby={passwordConfirmationFieldErrorId}
+                aria-required
+                {...register("passwordConfirmation")}
+                className={classnames("w-full")}
               />
-            )}
+              {errors.passwordConfirmation?.message && (
+                <FieldError
+                  id={passwordConfirmationFieldErrorId}
+                  message={errors.passwordConfirmation.message}
+                />
+              )}
+            </div>
           </div>
+          <div className={classnames("mt-4", "flex", "justify-center")}>
+            <Button>
+              <button
+                type="button"
+                disabled={isSubmitting || isNavigating}
+                onClick={submit}
+              >
+                登録
+              </button>
+            </Button>
+          </div>
+        </form>
+        <div className={classnames("mt-4", "text-center")}>
+          <TextLink>
+            <NavLink to="/sign-in">ログイン</NavLink>
+          </TextLink>
         </div>
-        <div className="mt-4">
-          <Button>
-            <button
-              type="button"
-              disabled={isSubmitting || isNavigating}
-              onClick={submit}
-            >
-              登録
-            </button>
-          </Button>
-        </div>
-      </form>
+      </div>
     </main>
   );
 }
