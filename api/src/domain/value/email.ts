@@ -12,4 +12,8 @@ export class Email {
   public isValid() {
     return emailRules.safeParse(this._value).success;
   }
+
+  get value() {
+    return this._value;
+  }
 }

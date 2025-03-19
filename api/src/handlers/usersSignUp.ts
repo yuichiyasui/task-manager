@@ -20,7 +20,7 @@ export const usersSignUpHandlers = factory.createHandlers(
     }
 
     const userRepository = c.get("userRepository");
-    const user = await userRepository.findByEmail(body.email);
+    const user = await userRepository.findByEmail(email);
     if (user) {
       return c.text("Error", 400);
     }
