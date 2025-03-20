@@ -8,10 +8,10 @@ model Task {
   title: string;
 
   @doc("進行状態")
-  status: taskStatus;
+  status: TaskStatus;
 }
 
-enum taskStatus {
+enum TaskStatus {
   @doc("未着手")
   todo,
 

@@ -34,6 +34,19 @@ export default defineConfig({
           path: "apps/web/src/libs/orval.ts",
           name: "customFetch",
         },
+        operationName: (operation) => {
+          const operationId = operation.operationId;
+          if (!operationId) {
+            throw new Error(`operationId(${operationId}) is required`);
+          }
+          const splited = operationId.split("_");
+          const actualOperationId = splited.at(-1);
+          if (!actualOperationId) {
+            throw new Error(`operationId(${operationId}) is invalid`);
+          }
+
+          return actualOperationId;
+        },
       },
     },
   },

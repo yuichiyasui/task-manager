@@ -2,7 +2,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { NavLink, useNavigate, useNavigation } from "react-router";
 import { z } from "zod";
-import { usersSignUp } from "~/__generated__/users/users";
+import { signUp } from "~/__generated__/users/users";
 import { Button } from "~/components/button";
 import { FieldError } from "~/components/field-error";
 import { TextField } from "~/components/text-field";
@@ -63,7 +63,7 @@ export default function Page() {
 
   const submit = handleSubmit(async (data) => {
     try {
-      await usersSignUp({
+      await signUp({
         email: data.email,
         password: data.password,
       });
@@ -84,7 +84,7 @@ export default function Page() {
           "bg-white",
           "border",
           "border-gray-200",
-          "p-4",
+          "p-6",
           "w-96",
         )}
       >

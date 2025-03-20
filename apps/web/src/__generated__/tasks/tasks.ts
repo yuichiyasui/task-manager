@@ -5,15 +5,15 @@ import { customFetch } from "../../libs/orval";
  * Task API
  * OpenAPI spec version: 0.0.0
  */
-import type { TasksListTasks200, TasksListTasksParams } from "../api.schemas";
+import type { ListTasks200, ListTasksParams } from "../api.schemas";
 
-export type tasksListTasksResponse = {
-  data: TasksListTasks200;
+export type listTasksResponse = {
+  data: ListTasks200;
   status: number;
   headers: Headers;
 };
 
-export const getTasksListTasksUrl = (params: TasksListTasksParams) => {
+export const getListTasksUrl = (params: ListTasksParams) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
@@ -27,11 +27,11 @@ export const getTasksListTasksUrl = (params: TasksListTasksParams) => {
     : `/tasks`;
 };
 
-export const tasksListTasks = async (
-  params: TasksListTasksParams,
+export const listTasks = async (
+  params: ListTasksParams,
   options?: RequestInit,
-): Promise<tasksListTasksResponse> => {
-  return customFetch<tasksListTasksResponse>(getTasksListTasksUrl(params), {
+): Promise<listTasksResponse> => {
+  return customFetch<listTasksResponse>(getListTasksUrl(params), {
     ...options,
     method: "GET",
   });

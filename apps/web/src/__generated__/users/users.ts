@@ -7,21 +7,22 @@ import { customFetch } from "../../libs/orval";
  */
 import type { SignInRequest, SignUpRequest } from "../api.schemas";
 
-export type usersSignInResponse = {
+export type signInResponse = {
   data: void | void;
   status: number;
   headers: Headers;
 };
 
-export const getUsersSignInUrl = () => {
+export const getSignInUrl = () => {
   return `/users/sign-in`;
 };
 
-export const usersSignIn = async (
+export const signIn = async (
   signInRequest: SignInRequest,
   options?: RequestInit,
-): Promise<usersSignInResponse> => {
-  return customFetch<usersSignInResponse>(getUsersSignInUrl(), {
+): Promise<signInResponse> => {
+  console.log(getSignInUrl());
+  return customFetch<signInResponse>(getSignInUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
@@ -29,21 +30,21 @@ export const usersSignIn = async (
   });
 };
 
-export type usersSignUpResponse = {
+export type signUpResponse = {
   data: void | void;
   status: number;
   headers: Headers;
 };
 
-export const getUsersSignUpUrl = () => {
+export const getSignUpUrl = () => {
   return `/users/sign-up`;
 };
 
-export const usersSignUp = async (
+export const signUp = async (
   signUpRequest: SignUpRequest,
   options?: RequestInit,
-): Promise<usersSignUpResponse> => {
-  return customFetch<usersSignUpResponse>(getUsersSignUpUrl(), {
+): Promise<signUpResponse> => {
+  return customFetch<signUpResponse>(getSignUpUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },

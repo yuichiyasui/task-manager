@@ -52,7 +52,7 @@ export const TaskStatus = {
   done: "done",
 } as const;
 
-export type TasksListTasksParams = {
+export type ListTasksParams = {
   /**
    * 取得上限件数
    */
@@ -63,7 +63,7 @@ export type TasksListTasksParams = {
   offset: number;
 };
 
-export type TasksListTasks200 = {
+export type ListTasks200 = {
   tasks: Task[];
   total: number;
 };

@@ -46,6 +46,7 @@ export const customFetch = async <T>(
   const request = new Request(requestUrl, requestInit);
   const response = await fetch(request, {
     mode: "cors",
+    credentials: "include",
   });
   if (response.status >= 400) {
     throw new Error(`${response.status}`);
