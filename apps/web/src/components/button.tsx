@@ -1,6 +1,5 @@
-import React, {
+import {
   cloneElement,
-  Component,
   type ComponentPropsWithoutRef,
   type ReactElement,
 } from "react";
@@ -29,6 +28,7 @@ export const Button = ({
     "focus:ring-2",
     "focus:ring-offset-2",
     "transition-all",
+    "cursor-pointer",
   ];
 
   const variantStyles = {

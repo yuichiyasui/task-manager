@@ -86,6 +86,7 @@ export default function Page() {
                 id={fieldId.email}
                 type="email"
                 autoComplete="email"
+                autoSave="email"
                 aria-invalid={!!errors.email}
                 aria-describedby={emailFieldErrorId}
                 aria-required

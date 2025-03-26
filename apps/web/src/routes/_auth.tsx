@@ -1,5 +1,6 @@
-import { NavLink, Outlet, redirect } from "react-router";
-import { getSelf } from "~/__generated__/users/users";
+import { NavLink, Outlet, redirect, useNavigate } from "react-router";
+import { getSelf, signOut } from "~/__generated__/users/users";
+import { TextLink } from "~/components/text-link";
 import { classnames } from "~/utils/classnames";
 import type { Route } from "./+types/_auth";
 
@@ -12,7 +13,8 @@ export async function clientLoader(_: Route.ClientLoaderArgs) {
 }
 
 export default function AuthLayout(_: Route.ComponentProps) {
-  console.log("AuthLayout", _.loaderData.data);
+  const navigate = useNavigate();
+
   return (
     <div>
       <header
@@ -24,9 +26,22 @@ export default function AuthLayout(_: Route.ComponentProps) {
           "bg-white",
         )}
       >
-        <NavLink to="/" className={classnames("text-xl", "font-bold")}>
-          Task Manager
-        </NavLink>
+        <div className={classnames("flex", "justify-between", "items-center")}>
+          <NavLink to="/" className={classnames("text-xl", "font-bold")}>
+            Task Manager
+          </NavLink>
+          <TextLink>
+            <button
+              type="button"
+              onClick={async () => {
+                await signOut();
+                await navigate("/sign-in", { replace: true });
+              }}
+            >
+              ログアウト
+            </button>
+          </TextLink>
+        </div>
       </header>
       <main className={classnames("py-4", "px-8")}>
         <Outlet />

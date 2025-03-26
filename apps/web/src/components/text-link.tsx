@@ -1,7 +1,7 @@
 import {
-  cloneElement,
   type ComponentPropsWithoutRef,
   type ReactElement,
+  cloneElement,
 } from "react";
 import { classnames } from "~/utils/classnames";
 
@@ -14,6 +14,7 @@ export const TextLink = ({ children }: Props) => {
     className: classnames(
       "text-blue-600",
       "hover:underline",
+      "cursor-pointer",
       children.props.className,
     ),
   });
