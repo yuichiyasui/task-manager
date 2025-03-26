@@ -18,6 +18,7 @@ namespace TaskApi;
 @tag("tasks")
 namespace Tasks {
   @get
+  @summary("タスク一覧を取得")
   op listTasks(
     @doc("取得上限件数")
     @query
@@ -40,6 +41,7 @@ namespace Tasks {
 namespace Users {
   @route("/self")
   @get
+  @summary("ログインユーザー自身の情報を取得")
   op getSelf(): {
     @statusCode statusCode: 200;
     @body user: User;
@@ -50,6 +52,7 @@ namespace Users {
 
   @route("/sign-up")
   @post
+  @summary("ユーザー登録")
   op signUp(
     @body
     req: SignUpRequest,
@@ -61,6 +64,7 @@ namespace Users {
 
   @route("/sign-in")
   @post
+  @summary("ログイン")
   op signIn(
     @body
     req: SignInRequest,
@@ -68,5 +72,14 @@ namespace Users {
     @statusCode statusCode: 200;
   } | {
     @statusCode statusCode: 400;
+  };
+
+  @route("/sign-out")
+  @post
+  @summary("ログアウト")
+  op signOut(): {
+    @statusCode statusCode: 200;
+  } | {
+    @statusCode statusCode: 401;
   };
 }

@@ -48,6 +48,25 @@ export const signIn = async (
   });
 };
 
+export type signOutResponse = {
+  data: void | void;
+  status: number;
+  headers: Headers;
+};
+
+export const getSignOutUrl = () => {
+  return `/users/sign-out`;
+};
+
+export const signOut = async (
+  options?: RequestInit,
+): Promise<signOutResponse> => {
+  return customFetch<signOutResponse>(getSignOutUrl(), {
+    ...options,
+    method: "POST",
+  });
+};
+
 export type signUpResponse = {
   data: void | void;
   status: number;

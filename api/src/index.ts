@@ -29,7 +29,7 @@ app.use(
   }),
 );
 
-const authRoutes = ["/users/self", "/tasks"];
+const authRoutes = ["/users/self", "/users/sign-out", "/tasks"];
 for (const route of authRoutes) {
   app.use(
     route,

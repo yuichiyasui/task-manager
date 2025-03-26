@@ -17,6 +17,10 @@ export type UsersSignInContext<E extends Env = any> = Context<
   "/users/sign-in",
   { in: { json: SignInRequest }; out: { json: SignInRequest } }
 >;
+export type UsersSignOutContext<E extends Env = any> = Context<
+  E,
+  "/users/sign-out"
+>;
 export type UsersSignUpContext<E extends Env = any> = Context<
   E,
   "/users/sign-up",

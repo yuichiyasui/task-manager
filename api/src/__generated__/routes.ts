@@ -8,6 +8,7 @@ import { Hono } from "hono";
 import { tasksListTasksHandlers } from "../handlers/tasksListTasks";
 import { usersGetSelfHandlers } from "../handlers/usersGetSelf";
 import { usersSignInHandlers } from "../handlers/usersSignIn";
+import { usersSignOutHandlers } from "../handlers/usersSignOut";
 import { usersSignUpHandlers } from "../handlers/usersSignUp";
 
 const app = new Hono();
@@ -15,6 +16,7 @@ const app = new Hono();
 app.get("/tasks", ...tasksListTasksHandlers),
   app.get("/users/self", ...usersGetSelfHandlers),
   app.post("/users/sign-in", ...usersSignInHandlers),
+  app.post("/users/sign-out", ...usersSignOutHandlers),
   app.post("/users/sign-up", ...usersSignUpHandlers);
 
 export default app;
