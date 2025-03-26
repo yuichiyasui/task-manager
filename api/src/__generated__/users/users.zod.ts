@@ -6,6 +6,10 @@
  */
 import { z as zod } from "zod";
 
+export const usersGetSelfResponse = zod.object({
+  email: zod.string(),
+});
+
 export const usersSignInBody = zod.object({
   email: zod.string().min(1),
   password: zod.string().min(1),

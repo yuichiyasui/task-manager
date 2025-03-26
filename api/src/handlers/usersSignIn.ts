@@ -8,6 +8,7 @@ import { cookieKey } from "../constants/cookie";
 import { envVars } from "../constants/env";
 import { Email } from "../domain/value/email";
 import { Password } from "../domain/value/password";
+import type { JwtPayload } from "../interface/auth";
 import type { Env } from "../interface/env";
 
 const factory = createFactory<Env>();
@@ -31,7 +32,7 @@ export const usersSignInHandlers = factory.createHandlers(
       return c.text("Error", 400);
     }
 
-    const token = await createJwtToken();
+    const token = await createJwtToken({ userId: user.id });
 
     await setSignedCookie(c, cookieKey.token, token, envVars.cookieSecretKey, {
       path: "/",
@@ -45,11 +46,12 @@ export const usersSignInHandlers = factory.createHandlers(
   },
 );
 
-const createJwtToken = async () => {
+const createJwtToken = async ({ userId }: { userId: string }) => {
   const token = await sign(
     {
+      sub: userId,
       exp: Math.floor(Date.now() / 1000) + 60 * 30, // 30分
-    },
+    } satisfies JwtPayload,
     envVars.jwtSecretKey,
     AlgorithmTypes.HS256,
   );

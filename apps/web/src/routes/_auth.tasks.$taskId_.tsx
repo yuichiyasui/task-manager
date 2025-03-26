@@ -1,6 +1,6 @@
 import { Breadcrumb } from "~/components/breadcrumb";
 import { getMetaTitle } from "~/utils/meta";
-import type { Route } from "./+types/tasks_.$taskId";
+import type { Route } from "./+types/_auth.tasks.$taskId_";
 
 export function meta() {
   return [getMetaTitle({ pageTitle: "タスク詳細" })];

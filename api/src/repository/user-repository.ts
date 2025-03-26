@@ -10,12 +10,12 @@ export class UserRepository implements IUserRepository {
     this.client = client;
   }
 
-  public async findByEmail(email: Email): Promise<User | null> {
+  public async findById(id: string) {
     const user = await this.client.users.findUnique({
-      where: { email: email.value },
+      where: { id },
     });
 
-    if (user == null) {
+    if (user === null) {
       return null;
     }
 
@@ -26,7 +26,23 @@ export class UserRepository implements IUserRepository {
     });
   }
 
-  public async save(user: User): Promise<void> {
+  public async findByEmail(email: Email) {
+    const user = await this.client.users.findUnique({
+      where: { email: email.value },
+    });
+
+    if (user === null) {
+      return null;
+    }
+
+    return new User({
+      id: user.id,
+      email: user.email,
+      password: user.password,
+    });
+  }
+
+  public async save(user: User) {
     await this.client.users.create({
       data: {
         id: user.id,

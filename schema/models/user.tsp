@@ -1,3 +1,7 @@
+model User {
+  email: string;
+}
+
 model SignUpRequest {
   @doc("メールアドレス")
   @minLength(1)

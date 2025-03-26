@@ -38,6 +38,16 @@ namespace Tasks {
 @route("/users")
 @tag("users")
 namespace Users {
+  @route("/self")
+  @get
+  op getSelf(): {
+    @statusCode statusCode: 200;
+    @body user: User;
+  } | {
+    @statusCode
+    statusCode: 401;
+  };
+
   @route("/sign-up")
   @post
   op signUp(

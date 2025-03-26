@@ -9,6 +9,7 @@ import {
 
 import type { Route } from "./+types/root";
 import "./app.css";
+import { classnames } from "./utils/classnames";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -38,6 +39,31 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Scripts />
       </body>
     </html>
+  );
+}
+
+export function HydrateFallback() {
+  return (
+    <div className={classnames("h-screen", "grid", "place-items-center")}>
+      <div className={classnames("text-center")}>
+        <div
+          className={classnames(
+            "animate-spin",
+            "inline-block",
+            "size-12",
+            "border-3",
+            "border-current",
+            "border-t-transparent",
+            "text-blue-600",
+            "rounded-full",
+            "dark:text-blue-500",
+            "mx-auto",
+            "mb-8",
+          )}
+        />
+        <p>Loading...</p>
+      </div>
+    </div>
   );
 }
 

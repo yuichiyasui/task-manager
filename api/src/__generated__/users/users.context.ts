@@ -8,6 +8,10 @@ import type { Context, Env } from "hono";
 
 import { SignInRequest, SignUpRequest } from ".././models";
 
+export type UsersGetSelfContext<E extends Env = any> = Context<
+  E,
+  "/users/self"
+>;
 export type UsersSignInContext<E extends Env = any> = Context<
   E,
   "/users/sign-in",

@@ -5,7 +5,26 @@ import { customFetch } from "../../libs/orval";
  * Task API
  * OpenAPI spec version: 0.0.0
  */
-import type { SignInRequest, SignUpRequest } from "../api.schemas";
+import type { SignInRequest, SignUpRequest, User } from "../api.schemas";
+
+export type getSelfResponse = {
+  data: User | void;
+  status: number;
+  headers: Headers;
+};
+
+export const getGetSelfUrl = () => {
+  return `/users/self`;
+};
+
+export const getSelf = async (
+  options?: RequestInit,
+): Promise<getSelfResponse> => {
+  return customFetch<getSelfResponse>(getGetSelfUrl(), {
+    ...options,
+    method: "GET",
+  });
+};
 
 export type signInResponse = {
   data: void | void;
@@ -21,7 +40,6 @@ export const signIn = async (
   signInRequest: SignInRequest,
   options?: RequestInit,
 ): Promise<signInResponse> => {
-  console.log(getSignInUrl());
   return customFetch<signInResponse>(getSignInUrl(), {
     ...options,
     method: "POST",

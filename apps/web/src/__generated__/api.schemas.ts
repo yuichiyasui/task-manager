@@ -52,6 +52,10 @@ export const TaskStatus = {
   done: "done",
 } as const;
 
+export interface User {
+  email: string;
+}
+
 export type ListTasksParams = {
   /**
    * 取得上限件数

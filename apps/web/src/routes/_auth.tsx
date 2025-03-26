@@ -1,14 +1,18 @@
 import { NavLink, Outlet, redirect } from "react-router";
+import { getSelf } from "~/__generated__/users/users";
 import { classnames } from "~/utils/classnames";
 import type { Route } from "./+types/_auth";
 
-export async function clientLoader() {
-  // ユーザー情報を読み込み
-
-  return redirect("/sign-in");
+export async function clientLoader(_: Route.ClientLoaderArgs) {
+  try {
+    return await getSelf();
+  } catch (error) {
+    return redirect("/sign-in");
+  }
 }
 
-export default function AuthLayout(args: Route.ComponentProps) {
+export default function AuthLayout(_: Route.ComponentProps) {
+  console.log("AuthLayout", _.loaderData.data);
   return (
     <div>
       <header
